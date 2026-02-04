@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+pytesseract
+pdf2image
+pypdf
+supabase
+sentence-transformers
+torch
+azure-ai-inference
+python-multipart
+pydantic
+pillow
+requests
