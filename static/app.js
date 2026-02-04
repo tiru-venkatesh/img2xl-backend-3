@@ -11,7 +11,7 @@ async function uploadPDF() {
   status.innerText = "Uploading...";
   status.className = "status loading";
 
-  const res = await fetch("/upload", {
+  const res = await fetch("https://img2xl-backend-3-production.up.railway.app/upload",{
     method: "POST",
     body: formData
   });
