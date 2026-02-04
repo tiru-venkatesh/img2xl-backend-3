@@ -4,7 +4,7 @@ pytesseract
 pdf2image
 pypdf
 supabase
-torch==2.2.2+cpu
+torch==2.10.0+cpu
 transformers==4.39.3
 sentence-transformers==2.7.0
 --extra-index-url https://download.pytorch.org/whl/cpu
