@@ -1,6 +1,7 @@
 fastapi
 uvicorn
 pytesseract
+python-dotenv
 pdf2image
 pypdf
 supabase
