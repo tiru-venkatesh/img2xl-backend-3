@@ -1,0 +1,19 @@
+You are a data extraction AI.
+
+Convert the following text into a clean table.
+
+Rules:
+- Detect column names
+- Extract rows
+- Remove noise
+- Return ONLY valid JSON
+
+Format:
+{
+  "columns": ["col1","col2"],
+  "rows": [
+     {"col1":"value","col2":"value"}
+  ]
+}
+
+TEXT:

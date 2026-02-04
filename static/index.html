@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Img2XL</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="app-title">Img2XL</div>
+
+  <!-- Upload -->
+  <div class="card">
+    <h3>Upload PDF</h3>
+    <input type="file" id="fileInput">
+    <button onclick="uploadPDF()">Upload</button>
+    <p id="status" class="status"></p>
+  </div>
+
+  <!-- Chat -->
+  <div class="card">
+    <h3>Ask Your PDF</h3>
+
+    <div id="chatBox"></div>
+
+    <input type="text" id="questionInput" placeholder="Type your question...">
+    <button onclick="askQuestion()">Send</button>
+
+  </div>
+
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
