@@ -37,7 +37,7 @@ async function askQuestion() {
   addMessage(q, "user");
   input.value = "";
 
-  const res = await fetch("/ask", {
+  const res = await fetch("https://img2xl-backend-3-production.up.railway.app/ask", {
     method: "POST",
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify({ question: q })
