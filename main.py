@@ -192,33 +192,28 @@ from pydantic import BaseModel
 class AskRequest(BaseModel):
     question: str
 
-
 @app.post("/ask")
 async def ask_question(payload: AskRequest):
+    question = payload.question
 
     try:
-        question = payload.question
-
         results = search_chunks(question)
+        print("ASK RESULTS:", results)
 
         if not results:
             return {"answer": "No relevant data found in document."}
 
         context = "\n".join([r["chunk_text"] for r in results])
+        print("CONTEXT LENGTH:", len(context))
 
         answer = answer_question(context, question)
+        print("LLM ANSWER:", answer)
 
-        return {
-            "question": question,
-            "answer": answer
-        }
+        return {"answer": answer}
 
     except Exception as e:
-        print("ASK ERROR:", str(e))
-        return {
-            "answer": "AI service temporarily unavailable. Please try again."
-        }
-
+        print("ASK ERROR FULL TRACE:", repr(e))
+        return {"answer": f"Backend error: {str(e)}"}
 
 # ---------------- RUN ----------------
 if __name__ == "__main__":
