@@ -26,9 +26,11 @@ from services.search import search_chunks
 
 IS_PRODUCTION = os.getenv("IS_PRODUCTION", "false").lower() == "true"
 
-TESSERACT_PATH = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-if not IS_PRODUCTION and os.path.exists(TESSERACT_PATH):
-    pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
+if not IS_PRODUCTION:
+    TESSERACT_PATH = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    if os.path.exists(TESSERACT_PATH):
+        pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
+
 
 BASE_DIR = "uploads"
 PDF_DIR = os.path.join(BASE_DIR, "pdfs")
@@ -127,7 +129,7 @@ async def upload_pdf(file: UploadFile = File(...)):
 
             try:
                 images = convert_from_path(pdf_path, first_page=i+1, last_page=i+1)
-                ocr_text = pytesseract.image_to_string(images[0])
+                ocr_text = pytesseract.image_to_string(images[0], lang="eng")
                 ocr_status = "success"
             except:
                 ocr_status = "failed"
