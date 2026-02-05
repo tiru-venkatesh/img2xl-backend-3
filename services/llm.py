@@ -1,11 +1,11 @@
-import os
 from google import genai
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+# API key is automatically read from GEMINI_API_KEY
+client = genai.Client()
 
 def call_llm(prompt: str):
     response = client.models.generate_content(
-        model="gemini-1.5-flash-latest",
+        model="gemini-3-flash-preview",
         contents=prompt
     )
     return response.text
