@@ -191,7 +191,6 @@ async def ask_question(payload: AskRequest):
         return {
     "answer": answer,
     "sources": results,
-    "ocr_text": full_ocr_text,
     "total_sources": len(results)
 }
 
