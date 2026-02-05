@@ -1,18 +1,23 @@
 fastapi
 uvicorn
-pytesseract
-python-dotenv
-pdf2image
-pypdf
-supabase
-torch==2.10.0+cpu
-transformers==4.39.3
-sentence-transformers==2.7.0
---extra-index-url https://download.pytorch.org/whl/cpu
-azure-ai-inference
 python-multipart
 pydantic
 pillow
+
+pytesseract
+pdf2image
+pypdf
+python-dotenv
+
+supabase
 requests
 pandas
 openpyxl
+
+sentence-transformers==2.7.0
+transformers==4.39.3
+
+google-generativeai
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.0+cpu
