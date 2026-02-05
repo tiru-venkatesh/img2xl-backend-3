@@ -17,7 +17,8 @@ openpyxl
 sentence-transformers==2.7.0
 transformers==4.39.3
 
-google-generativeai
+google-genai
+
 
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch==2.1.0+cpu
