@@ -188,7 +188,12 @@ async def ask_question(payload: AskRequest):
 
         answer = answer_question(context, payload.question)
 
-        return {"answer": answer}
+        return {
+    "answer": answer,
+    "sources": results,
+    "total_sources": len(results)
+}
+
 
     except Exception as e:
         print("ASK ERROR:", e)
