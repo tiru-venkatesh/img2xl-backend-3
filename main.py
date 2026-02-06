@@ -4,6 +4,8 @@ import shutil
 import uuid
 import pytesseract
 import uvicorn
+import traceback
+
 
 from typing import List
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
@@ -29,11 +31,8 @@ ENABLE_OCR = os.getenv("ENABLE_OCR", "true").lower() == "true"
 IS_PRODUCTION = os.getenv("IS_PRODUCTION", "false").lower() == "true"
 
 # ---------------- OCR CONFIG ----------------
-
-if ENABLE_OCR and not IS_PRODUCTION:
-    TESSERACT_PATH = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-    if os.path.exists(TESSERACT_PATH):
-        pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
+print("TESSERACT PATH:", shutil.which("tesseract"))
+print("PDFINFO PATH:", shutil.which("pdfinfo"))
 
 # ---------------- STORAGE ----------------
 
@@ -168,7 +167,9 @@ async def upload_pdf(
         }
 
     except Exception as e:
-        raise HTTPException(500, str(e))
+    print("UPLOAD FAILED:", str(e))
+    print(traceback.format_exc())
+    raise HTTPException(500, "Upload processing failed")
 
 # ---------------- ASK QUESTION ----------------
 
