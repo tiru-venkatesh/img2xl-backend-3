@@ -166,7 +166,7 @@ async def upload_pdf(
             "stored_in_database": True
         }
 
-    except Exception as e:
+except Exception as e:
     print("UPLOAD FAILED:", str(e))
     print(traceback.format_exc())
     raise HTTPException(500, "Upload processing failed")
@@ -189,7 +189,7 @@ async def ask_question(payload: AskRequest):
 
         answer = answer_question(context, payload.question)
 
-        return {
+return {
     "answer": answer,
     "sources": results,
     "total_sources": len(results)
