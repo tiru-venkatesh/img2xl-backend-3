@@ -9,12 +9,6 @@ Guidelines:
 - If relevant, ask one small follow-up question at the end
 - Base answers ONLY on the provided document data
 
-Document Data:
-<<<DOCUMENT_JSON>>>
-
-User Question:
-<<<USER_QUESTION>>>
-
 Format:
 {
   "columns": ["col1","col2"],
